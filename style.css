@@ -250,3 +250,54 @@ nav { padding: 25px 0; background: rgba(8, 12, 20, 0.95); backdrop-filter: blur(
     .offer-tag-modern { font-size: 0.7rem; padding: 6px 15px; }
     .stat-value { font-size: 2.8rem; }
 }
+/* =========================================
+   PULIDO FINAL: PRECIOS Y EQUIPO
+   ========================================= */
+
+/* Transforma el precio en una pastilla tecnológica */
+.price-tag {
+    background: rgba(0, 102, 255, 0.1); 
+    border: 1px solid var(--accent-secondary);
+    color: var(--accent-secondary);
+    padding: 8px 22px;
+    border-radius: 100px; 
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 15px 0;
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+}
+
+/* Ajuste de sección Equipo */
+#equipo {
+    padding-top: 20px; 
+}
+
+#equipo .section-title {
+    margin-bottom: 25px; /* Acerca el título a las fotos */
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center; /* Centra a Santiago y Tomas */
+    align-items: stretch;    /* Los nivela para que midan lo mismo de alto */
+    gap: 35px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.member-card {
+    flex: 1;
+    min-width: 320px;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mantiene los botones/iconos alineados abajo */
+}
+
+/* Centrado de elementos internos del equipo */
+.team-img-container, .socials {
+    display: flex;
+    justify-content: center;
+}
