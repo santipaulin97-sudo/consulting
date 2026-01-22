@@ -332,3 +332,41 @@ nav { padding: 25px 0; background: rgba(8, 12, 20, 0.95); backdrop-filter: blur(
         font-size: 2rem;
     }
 }
+/* --- CORRECCIÓN FOOTER --- */
+.main-footer {
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+    text-align: center; /* Centra el texto */
+    background: var(--bg-main);
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos en el eje horizontal */
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-tag {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-secondary);
+    letter-spacing: 2px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+.main-footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 600px;
+}
+/* Ajuste para que en móviles el botón del Bot no tape contenido importante */
+@media (max-width: 600px) {
+    .main-footer {
+        padding-bottom: 120px; /* Espacio extra para que el botón del chat no tape el texto */
+    }
+    .hero h1 {
+        font-size: 2.5rem; /* Título más manejable en móvil */
+    }
+}
