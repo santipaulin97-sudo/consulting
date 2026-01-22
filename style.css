@@ -62,123 +62,191 @@ nav { padding: 25px 0; background: rgba(8, 12, 20, 0.95); backdrop-filter: blur(
 .btn-primary, .btn-primary-alt-modern, .cta-nav {
     position: relative; overflow: hidden;
 }
-
 .btn-primary::after, .btn-primary-alt-modern::after, .cta-nav::after {
     content: ''; position: absolute; top: -50%; left: -60%; width: 20%; height: 200%;
     background: rgba(255, 255, 255, 0.2); transform: rotate(30deg); transition: all 0.6s;
 }
-
 .btn-primary:hover::after, .btn-primary-alt-modern:hover::after, .cta-nav:hover::after { left: 120%; }
 
 /* =========================================
-   5. HERO & PASTILLAS GLASSMORPHISM
+   5. HERO Y PASTILLAS (GLASSMORPHISM NUEVO)
    ========================================= */
 .hero { text-align: center; padding: 140px 0 80px; }
 .hero h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 25px; letter-spacing: -1.8px; }
 .highlight { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-subtitle { color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; font-size: 1.2rem; }
-
 .btn-primary { background: var(--accent-gradient); color: white; padding: 22px 50px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; }
 .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 15px 30px rgba(0, 102, 255, 0.4); }
 
+/* --- PASTILLAS NUEVAS --- */
 .trust-badges { margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 .trust-badges span {
     display: inline-flex; align-items: center; gap: 12px;
     background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 12px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600;
     color: var(--text-white); backdrop-filter: blur(10px); transition: var(--transition-premium);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); cursor: default;
 }
-.trust-badges span i { color: var(--accent-secondary); filter: drop-shadow(0 0 5px rgba(0, 224, 255, 0.5)); }
-.trust-badges span:hover { background: rgba(0, 102, 255, 0.1); border-color: var(--accent-secondary); transform: translateY(-5px); }
+.trust-badges span i { font-size: 1.1rem; color: var(--accent-secondary); filter: drop-shadow(0 0 5px rgba(0, 224, 255, 0.5)); }
+.trust-badges span:hover { background: rgba(0, 102, 255, 0.1); border-color: var(--accent-secondary); transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(0, 224, 255, 0.2); }
 
 /* =========================================
-   6. SECCIONES, GRIDS & CARDS
+   6. STATS (ESTADÍSTICAS) - ¡RESTAURADO!
+   ========================================= */
+.stats-bar { padding: 70px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 30px 0; }
+.stats-grid-mini { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+.stat-value { font-size: 3.5rem; font-weight: 800; color: var(--accent-secondary); text-shadow: 0 0 20px rgba(0, 224, 255, 0.4); }
+.stat-label { color: var(--text-muted); font-weight: 500; margin-top: 10px; }
+
+/* =========================================
+   7. GRIDS & CARDS GENERALES
    ========================================= */
 .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 30px; font-weight: 800; }
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 .solutions-grid, .pricing-grid, .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
-
 .sol-card, .action-card, .price-card, .member-card {
     background: linear-gradient(145deg, var(--bg-card), var(--bg-main));
     padding: 45px; border-radius: 32px; border: 1px solid var(--border); transition: var(--transition-premium);
-    display: flex; flex-direction: column;
+    display: flex; flex-direction: column; position: relative;
 }
 .sol-card:hover, .action-card:hover, .price-card:hover, .member-card:hover { transform: translateY(-12px); border-color: var(--accent-secondary); box-shadow: 0 20px 40px rgba(0, 224, 255, 0.15); }
-
-.sol-card i, .price-card i { font-size: 3.5rem; margin-bottom: 25px; display: block; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.sol-card i, .price-card i { font-size: 3.5rem; margin-bottom: 25px; display: block; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 5px 10px rgba(0, 102, 255, 0.2)); }
 
 /* =========================================
-   7. SECCIÓN DE OFERTA MODERNA
+   8. EQUIPO (CON ANILLO DE LUZ NUEVO)
+   ========================================= */
+.team-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 35px; margin-top: 15px; }
+.member-card { width: 480px; }
+.team-img-container { text-align: center; margin-bottom: 25px; }
+/* --- FOTO CON ANILLO DE LUZ --- */
+.team-img { 
+    width: 140px; height: 140px; border-radius: 50%; 
+    border: 3px solid var(--accent-primary);
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.3), inset 0 0 10px rgba(0, 102, 255, 0.2);
+    object-fit: cover; transition: var(--transition-premium);
+}
+.member-card:hover .team-img { border-color: var(--accent-secondary); box-shadow: 0 0 30px rgba(0, 224, 255, 0.5); transform: scale(1.05); }
+.member-info { text-align: center; }
+.member-info h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 5px; }
+.role { color: var(--accent-secondary); font-weight: 600; margin-bottom: 15px; }
+.desc { color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; }
+.socials { display: flex; justify-content: center; gap: 15px; }
+.socials a i { color: #ffffff; font-size: 1.3rem; transition: 0.3s; }
+.socials a i:hover { color: var(--accent-secondary); transform: translateY(-3px); }
+
+/* =========================================
+   9. PRECIOS & CASOS
+   ========================================= */
+.price-card.featured { border: 2px solid var(--accent-green) !important; transform: scale(1.03); }
+.rec-tag { background: var(--accent-green); color: #000; padding: 6px 20px; border-radius: 50px; font-weight: 800; font-size: 0.75rem; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4); }
+.price-tag { font-size: 1.5rem; font-weight: 800; margin: 20px 0; color: var(--text-white); }
+.price-card ul { list-style: none; margin-bottom: 30px; flex: 1; }
+.price-card ul li { margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
+.btn-price, .btn-price-outline { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; text-align: center; transition: 0.3s; }
+.btn-price { background: var(--accent-green); color: #000; box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3); }
+.btn-price:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 255, 136, 0.5); }
+.btn-price-outline { border: 2px solid var(--border); color: var(--text-white); }
+.btn-price-outline:hover { border-color: var(--accent-secondary); background: rgba(0, 224, 255, 0.05); }
+
+.img-wrap { height: 190px; border-radius: 16px; overflow: hidden; margin-bottom: 25px; background: #000; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 12px; opacity: 0.85; transition: 0.5s; }
+.action-card:hover .img-wrap img { opacity: 1; transform: scale(1.05); }
+.action-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+.action-card p { color: var(--text-muted); }
+
+/* =========================================
+   10. SECCIÓN DE OFERTA MODERNA
    ========================================= */
 .free-offer-section { padding: 80px 0; }
 .free-card {
-    background: linear-gradient(145deg, var(--bg-card), var(--bg-main));
+    background: linear-gradient(145deg, rgba(17, 24, 38, 0.9), rgba(8, 12, 20, 0.9));
     border: 1px solid var(--border); border-radius: 32px; padding: 50px;
     text-align: center; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); position: relative; overflow: hidden;
 }
 .free-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-primary), transparent); opacity: 0.5; }
-
-.offer-tag-modern { display: inline-block; background: var(--accent-green); color: #000; padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 20px; }
+.offer-header-modern { margin-bottom: 50px; }
+.offer-tag-modern { display: inline-block; background: var(--accent-green); color: #000; padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3); }
 .offer-header-modern h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; }
+.offer-subtitle-modern { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
 
-.offer-steps-grid-modern { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 50px 0; }
+.offer-steps-grid-modern { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 50px; }
+.offer-step-item-modern { padding: 20px; }
 .step-icon i { font-size: 4.5rem; margin-bottom: 25px; display: block; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 15px rgba(0, 102, 255, 0.3)); }
+.offer-step-item-modern h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+.offer-step-item-modern p { color: var(--text-muted); font-size: 0.95rem; }
 
 .offer-examples-container-modern { background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 35px; text-align: left; margin-bottom: 40px; border: 1px solid var(--border); }
+.offer-examples-container-modern h4 { font-size: 1.1rem; margin-bottom: 25px; text-align: center; }
 .examples-list-modern { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 30px; }
-.example-item { display: flex; align-items: center; gap: 12px; }
+.example-item { display: flex; align-items: center; gap: 12px; font-weight: 500; color: var(--text-white); }
 .example-item i { color: var(--accent-green); font-size: 1rem; }
 
-.btn-primary-alt-modern { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-gradient); color: white; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4); }
+.offer-cta-container { margin-top: 30px; }
+.btn-primary-alt-modern { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-gradient); color: white; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4); transition: var(--transition-premium); }
+.btn-primary-alt-modern:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 40px rgba(0, 102, 255, 0.5); }
 
 /* =========================================
-   8. P&G BOT - DISEÑO ENTERPRISE COMPLETO
+   11. P&G BOT - DISEÑO COMPLETO
    ========================================= */
 .chatbot-container { position: fixed; bottom: 35px; right: 35px; z-index: 10000; font-family: 'Inter', sans-serif; }
-.chat-trigger-wrapper { display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; }
-.chat-trigger { width: 75px; height: 75px; border-radius: 50%; background: var(--accent-gradient); color: white; border: none; font-size: 2.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4); transition: var(--transition-premium); }
-.chat-trigger-wrapper:hover .chat-trigger { transform: scale(1.1) rotate(10deg); }
+.chat-trigger-wrapper { display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
+.chat-trigger { width: 75px; height: 75px; border-radius: 50%; background: var(--accent-gradient); color: white; border: none; font-size: 2.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4), 0 0 15px rgba(0, 224, 255, 0.3); transition: var(--transition-premium); }
 .trigger-label { color: var(--text-white); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.9; }
+.chat-trigger-wrapper:hover .chat-trigger { transform: scale(1.1) rotate(10deg); }
 
 .chat-window { position: absolute; bottom: 105px; right: 0; width: 370px; height: 550px; background: rgba(17, 24, 38, 0.98); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 28px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8); animation: chatSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 @keyframes chatSlideIn { from { opacity: 0; transform: translateY(30px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
 .chat-header { background: var(--accent-gradient); padding: 20px; color: white; display: flex; justify-content: space-between; align-items: center; font-weight: 800; }
-.chat-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
-.message { max-width: 85%; padding: 12px 18px; border-radius: 20px; font-size: 0.95rem; line-height: 1.4; }
-.message.bot { background: rgba(255, 255, 255, 0.06); color: var(--text-white); align-self: flex-start; border-bottom-left-radius: 5px; border: 1px solid var(--border); }
-.message.user { background: var(--accent-primary); color: white; align-self: flex-end; border-bottom-right-radius: 5px; }
+.chat-logo-title { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.1rem; }
+.bot-avatar-mini { background: rgba(255,255,255,0.2); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+#close-chat { background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem; }
 
-.chat-options { display: flex; flex-direction: column; gap: 10px; }
-.chat-opt-btn { background: rgba(0, 224, 255, 0.05); border: 1px solid rgba(0, 224, 255, 0.2); color: var(--accent-secondary); padding: 12px; border-radius: 15px; text-align: left; cursor: pointer; transition: 0.3s; font-weight: 600; }
-.chat-opt-btn:hover { background: rgba(0, 224, 255, 0.15); transform: translateX(8px); }
+.chat-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+.message { max-width: 85%; padding: 12px 18px; border-radius: 20px; font-size: 0.95rem; line-height: 1.4; animation: msgFade 0.3s ease; }
+@keyframes msgFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.message.bot { background: rgba(255, 255, 255, 0.06); color: var(--text-white); align-self: flex-start; border-bottom-left-radius: 5px; border: 1px solid var(--border); }
+.message.user { background: var(--accent-primary); color: white; align-self: flex-end; border-bottom-right-radius: 5px; box-shadow: 0 4px 15px rgba(0, 102, 255, 0.2); }
+
+.typing-indicator { padding: 10px 20px; display: none; gap: 5px; align-items: center; }
+.typing-indicator span { width: 6px; height: 6px; background: var(--accent-secondary); border-radius: 50%; animation: dotBounce 1.4s infinite ease-in-out; }
+@keyframes dotBounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+.chat-options { display: flex; flex-direction: column; gap: 10px; margin-top: 5px; }
+.chat-opt-btn { background: rgba(0, 224, 255, 0.05); border: 1px solid rgba(0, 224, 255, 0.2); color: var(--accent-secondary); padding: 12px 15px; border-radius: 15px; text-align: left; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
+.chat-opt-btn:hover { background: rgba(0, 224, 255, 0.15); border-color: var(--accent-secondary); transform: translateX(8px); }
 
 .chat-footer { padding: 15px; display: flex; gap: 10px; background: rgba(0, 0, 0, 0.3); border-top: 1px solid var(--border); }
 .chat-footer input { flex: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); border-radius: 15px; padding: 12px; color: white; outline: none; }
-.chat-footer button { background: var(--accent-primary); border: none; border-radius: 12px; width: 45px; color: white; cursor: pointer; }
+.chat-footer button { background: var(--accent-primary); border: none; border-radius: 12px; width: 45px; color: white; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+.chat-footer button:hover { background: var(--accent-secondary); color: var(--bg-main); }
 
 /* =========================================
-   9. EQUIPO & FOOTER CENTRADO
+   12. FOOTER CENTRADO & RESPONSIVE
    ========================================= */
-.team-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 35px; margin-top: 15px; }
-.team-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent-primary); box-shadow: 0 0 20px rgba(0, 102, 255, 0.3); object-fit: cover; align-self: center; margin-bottom: 20px; transition: 0.3s; }
-.member-card:hover .team-img { border-color: var(--accent-secondary); box-shadow: 0 0 30px rgba(0, 224, 255, 0.5); }
-.socials a i { color: #ffffff; margin: 0 10px; font-size: 1.2rem; transition: 0.3s; }
-
 .main-footer { padding: 120px 0 80px; border-top: 1px solid var(--border); text-align: center; background: var(--bg-main); width: 100%; }
 .main-footer .container { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; }
-.footer-tag { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--accent-secondary); letter-spacing: 3px; background: rgba(0, 224, 255, 0.05); padding: 5px 15px; border-radius: 50px; }
+.main-footer p { color: var(--text-muted); font-size: 0.9rem; max-width: 600px; }
+.footer-tag { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--accent-secondary); text-transform: uppercase; letter-spacing: 3px; margin-top: 10px; opacity: 0.7; background: rgba(0, 224, 255, 0.05); padding: 5px 15px; border-radius: 50px; }
 
-/* =========================================
-   10. RESPONSIVE
-   ========================================= */
 @media (max-width: 900px) {
     .nav-links { display: none; }
     .hero h1 { font-size: 3rem; }
-    .solutions-grid, .pricing-grid, .action-grid, .offer-steps-grid-modern, .examples-list-modern { grid-template-columns: 1fr; }
+    .stats-grid-mini, .solutions-grid, .pricing-grid, .action-grid, .offer-steps-grid-modern, .examples-list-modern { grid-template-columns: 1fr; }
+    .nav-container { padding: 0 15px; }
+    .offer-steps-grid-modern, .examples-list-modern { text-align: center; }
+    .offer-examples-container-modern { text-align: center; }
+    .example-item { justify-content: center; }
+    .offer-header-modern h2 { font-size: 2rem; }
+    .member-card { width: 100%; }
     .chat-window { width: calc(100vw - 40px); bottom: 100px; }
-    .main-footer { padding-bottom: 120px; }
+}
+
+@media (max-width: 600px) {
+    .main-footer { padding-bottom: 140px; }
+    .hero h1 { font-size: 2.5rem; }
+    .offer-tag-modern { font-size: 0.7rem; padding: 6px 15px; }
+    .stat-value { font-size: 2.8rem; }
 }
