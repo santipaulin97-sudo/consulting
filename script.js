@@ -82,28 +82,36 @@ const typingIndicator = document.getElementById('typing-indicator');
 
 const botResponses = {
     free: {
-        es: "Nuestra **Automatización Gratis** consiste en identificar un proceso repetitivo y automatizarlo en 1-2 semanas para que compruebes el ahorro real.",
-        en: "Our **Free Automation** consists of identifying a repetitive process and automating it in 1-2 weeks."
+        es: "Nuestra **Automatización Gratis** consiste en identificar un proceso repetitivo y entregarlo en 1-2 semanas sin costo para que valides el ahorro real.",
+        en: "Our **Free Automation** consists of identifying a repetitive process and delivering it in 1-2 weeks at no cost so you can validate the real savings."
     },
     price: {
-        es: "Packs desde **USD 300/mes**. Aceptamos transferencia bancaria, tarjetas de crédito y pagos vía Deel o Payoneer.",
-        en: "Packs start at **USD 300/mo**. We accept bank transfers, credit cards, and payments via Deel or Payoneer."
+        es: "Los packs Pro inician en **USD 300/mes**. Aceptamos transferencias, tarjetas y pagos internacionales vía Deel o Payoneer. Consultanos por planes a medida.",
+        en: "Pro packs start at **USD 300/mo**. We accept transfers, cards, and international payments via Deel or Payoneer. Ask us for custom plans."
+    },
+    payments: {
+        es: "Podés pagar vía **transferencia, tarjetas o plataformas como Deel/Payoneer**. Para proyectos grandes, ofrecemos **pagos por hitos** para tu comodidad.",
+        en: "You can pay via **transfer, cards, or platforms like Deel/Payoneer**. For large projects, we offer **milestone-based payments**."
+    },
+    cases: {
+        es: "¡Sí! Tenemos casos de **Agentes de RRHH con GPT-4o**, validación de datos financieros y conciliación bancaria. Podés ver los detalles en la sección **'Casos Reales'** de la web.",
+        en: "Yes! We have cases including **HR Agents with GPT-4o**, financial data validation, and bank reconciliation. You can see details in the **'Case Studies'** section."
+    },
+    workflow: {
+        es: "Trabajamos de forma ágil: 1. **Diagnóstico** gratuito. 2. Definición de **MVP**. 3. Desarrollo e **Implementación** en nube. 4. Soporte continuo.",
+        en: "We work agile: 1. Free **Diagnosis**. 2. **MVP** definition. 3. Cloud **Development & Implementation**. 4. Continuous support."
+    },
+    security: {
+        es: "La seguridad es prioridad. Aplicamos estándares de **Mercado Libre** para el manejo de datos, usando encriptación y entornos Cloud Native seguros.",
+        en: "Security is a priority. We apply **Mercado Libre** standards for data handling, using encryption and secure Cloud Native environments."
     },
     tech: {
-        es: "Somos expertos en el stack moderno: **GCP, Snowflake y Apache Airflow**. Construimos soluciones robustas con **Python y n8n**.",
-        en: "We are experts in the modern stack: **GCP, Snowflake, and Apache Airflow**. We build robust solutions with **Python and n8n**."
-    },
-    bi: {
-        es: "¡Claro! Desarrollamos **Dashboards interactivos** en tiempo real para que visualices tus KPIs y gráficos de rendimiento automáticamente.",
-        en: "Of course! We develop real-time **interactive Dashboards** so you can visualize your KPIs and performance charts automatically."
-    },
-    time: {
-        es: "Un proyecto promedio suele estar productivo en **2 a 4 semanas**, dependiendo de la complejidad de la arquitectura de datos.",
-        en: "An average project is usually productive in **2 to 4 weeks**, depending on the complexity of the data architecture."
+        es: "Somos expertos en **GCP, Snowflake y Apache Airflow**. Para integraciones rápidas y robustas usamos **Python y n8n**.",
+        en: "We are experts in **GCP, Snowflake, and Apache Airflow**. We use **Python and n8n** for fast and robust integrations."
     },
     human: {
-        es: "¡Excelente! Te derivaré con un **Consultor Especializado**. Puedes agendar directo aquí: <br><a href='https://calendly.com/santipaulin97/30min' target='_blank' style='color:#00E0FF'>📅 Agendar Llamada</a>",
-        en: "Great! I'll refer you to a **Specialized Consultant**. You can book directly here: <br><a href='https://calendly.com/santipaulin97/30min' target='_blank' style='color:#00E0FF'>📅 Book a Call</a>"
+        es: "¡Excelente! Te derivaré con un **Consultor Especializado**. Agendá directo aquí: <br><a href='https://calendly.com/santipaulin97/30min' target='_blank' style='color:#00E0FF'>📅 Agendar Llamada</a>",
+        en: "Great! I'll refer you to a **Specialized Consultant**. Book directly here: <br><a href='https://calendly.com/santipaulin97/30min' target='_blank' style='color:#00E0FF'>📅 Book a Call</a>"
     }
 };
 
@@ -156,25 +164,29 @@ document.addEventListener('click', (e) => {
 
 // MOTOR DE INTELIGENCIA POR PALABRAS CLAVE
 sendBtn.addEventListener('click', () => {
-    const text = chatInput.value.trim().toLowerCase();
-    if (text) {
-        addMessage(chatInput.value, 'user');
-        chatInput.value = '';
-        
-        if (text.includes('gratis') || text.includes('free')) botReply('free');
-        else if (text.includes('precio') || text.includes('cost') || text.includes('paga') || text.includes('mes')) botReply('price');
-        else if (text.includes('gcp') || text.includes('airflow') || text.includes('snowflake') || text.includes('python') || text.includes('n8n')) botReply('tech');
-        else if (text.includes('grafic') || text.includes('dashboard') || text.includes('bi') || text.includes('ver datos')) botReply('bi');
-        else if (text.includes('tiempo') || text.includes('tarda') || text.includes('plazo')) botReply('time');
-        else if (text.includes('consultor') || text.includes('hablar') || text.includes('llamada')) botReply('human');
-        else {
-            typingIndicator.style.display = 'flex';
-            setTimeout(() => {
-                typingIndicator.style.display = 'none';
-                addMessage(currentLang === 'es' ? "Como ingenieros de datos, podemos resolver eso. ¿Te gustaría hablar con un consultor o conocer nuestro stack tecnológico?" : "As data engineers, we can solve that. Would you like to talk to a consultant or see our tech stack?", 'bot');
-                showChatMenu();
-            }, 1200);
-        }
+  const text = chatInput.value.trim().toLowerCase();
+if (text) {
+    addMessage(chatInput.value, 'user');
+    chatInput.value = '';
+    
+    // Motor de búsqueda mejorado
+    if (text.includes('gratis') || text.includes('free') || text.includes('prueba')) botReply('free');
+    else if (text.includes('precio') || text.includes('cost') || text.includes('cuanto sale') || text.includes('val')) botReply('price');
+    else if (text.includes('paga') || text.includes('cuota') || text.includes('tarjeta') || text.includes('transferencia') || text.includes('deel') || text.includes('payoneer')) botReply('payments');
+    else if (text.includes('caso') || text.includes('exito') || text.includes('hicieron') || text.includes('estudio') || text.includes('success')) botReply('cases');
+    else if (text.includes('trabajan') || text.includes('metodo') || text.includes('pasos') || text.includes('como hacen') || text.includes('workflow')) botReply('workflow');
+    else if (text.includes('seguridad') || text.includes('datos') || text.includes('confidencial') || text.includes('security') || text.includes('safe')) botReply('security');
+    else if (text.includes('gcp') || text.includes('airflow') || text.includes('snowflake') || text.includes('python') || text.includes('tech')) botReply('tech');
+    else if (text.includes('consultor') || text.includes('hablar') || text.includes('humano') || text.includes('reunion') || text.includes('call')) botReply('human');
+    else {
+        typingIndicator.style.display = 'flex';
+        setTimeout(() => {
+            typingIndicator.style.display = 'none';
+            addMessage(currentLang === 'es' ? 
+                "Esa es una pregunta interesante. No tengo la respuesta exacta, pero un especialista puede aclarártelo. ¿Te gustaría agendar una llamada o ver nuestras tecnologías?" : 
+                "That's an interesting question. I don't have the exact answer, but a specialist can clarify it. Would you like to book a call or see our technologies?", 'bot');
+            showChatMenu();
+        }, 1200);
     }
 });
 
