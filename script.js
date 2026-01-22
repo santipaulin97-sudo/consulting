@@ -136,9 +136,10 @@ sendBtn.addEventListener('click', () => {
     setTimeout(() => {
         typingIndicator.style.display = 'none';
 
-        const detectedIntent = Object.entries(intents)
-            .find(([_, keywords]) => keywords.some(k => normalizedText.includes(k)))
-            ?. [0];
+        const match = Object.entries(intents)
+            .find(([_, keywords]) => keywords.some(k => normalizedText.includes(k)));
+
+    const detectedIntent = match ? match[0] : null;
 
         if (detectedIntent) {
             botReply(detectedIntent);
