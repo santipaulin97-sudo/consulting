@@ -87,7 +87,12 @@ document.getElementById('close-chat').addEventListener('click', () => {
 function addMessage(text, type) {
     const msg = document.createElement('div');
     msg.className = `message ${type}`;
-    msg.innerHTML = text;
+    
+    // --- MEJORA AQUÍ ---
+    // Esta línea convierte el texto tipo **negrita** en etiquetas <strong> reales
+    let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    msg.innerHTML = formattedText; // Usamos innerHTML para que se vea el formato
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
 }
