@@ -56,57 +56,65 @@ nav { padding: 25px 0; background: rgba(8, 12, 20, 0.95); backdrop-filter: blur(
 /* --- LOGO HÍBRIDO: IMAGEN + TEXTO (ESTILO TECH) --- */
 
 /* 1. Contenedor Principal (Alinea ícono y texto) */
+/* --- LOGO FINAL: ÍCONO + TEXTO TECH NÍTIDO --- */
+
+/* 1. Contenedor Principal: Alinea ícono y texto */
 .logo a {
     display: flex;
-    align-items: center;    /* Centrado vertical perfecto */
-    gap: 12px;              /* Espacio entre la imagen y el texto */
-    text-decoration: none;  /* Quita subrayados */
+    align-items: center;    /* Centrado vertical */
+    gap: 12px;              /* Espacio entre ícono y texto */
+    text-decoration: none;  /* Sin subrayado */
     padding: 5px 0;
 }
 
-/* 2. La Imagen (Tu logo actual) */
+/* 2. Estilo del Ícono (Imagen) */
 .logo img {
-    height: 38px;  /* Tu altura preferida */
-    width: auto;
+    height: 36px; /* Altura del ícono */
+    width: auto;  /* Mantiene proporción */
     
-    /* Filtro base azulado */
-    filter: drop-shadow(0 0 4px rgba(0, 224, 255, 0.35));
+    /* Brillo suave inicial */
+    filter: drop-shadow(0 0 3px rgba(0, 224, 255, 0.4));
     
-    /* Transición suave */
+    /* Transición suave para el efecto */
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* 3. El Texto (Nuevo agregado) */
+/* 3. Estilo del Texto (BYNARY) */
 .logo span {
+    /* Fuente técnica y moderna */
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -1px;
+    font-weight: 800; /* Letra gruesa */
+    letter-spacing: -1px; /* Letras juntas, más compacto */
     text-transform: uppercase;
     
-    /* El Color Degradado (Tu marca) */
+    /* Aplica tu degradado azul al texto */
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    /* Brillo base suave */
-    filter: drop-shadow(0 0 5px rgba(0, 224, 255, 0.3));
-    transition: filter 0.3s ease;
+    /* Brillo nítido inicial (tipo neón) */
+    filter: drop-shadow(0 0 4px rgba(0, 224, 255, 0.5));
+    
+    /* Transición suave */
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-/* --- EFECTOS AL PASAR EL MOUSE (HOVER) --- */
+/* --- EFECTO AL PASAR EL MOUSE (HOVER) --- */
 
-/* La imagen hace el efecto de inclinación que te gusta */
+/* El ícono se inclina y aumenta su brillo */
 .logo a:hover img {
-    transform: scale(1.08) skewX(-5deg);
-    filter: drop-shadow(0 0 15px rgba(0, 224, 255, 0.85)) brightness(1.2);
+    transform: scale(1.05) skewX(-5deg); /* Zoom sutil e inclinación "veloz" */
+    filter: drop-shadow(0 0 15px rgba(0, 224, 255, 0.9)) brightness(1.2);
 }
 
-/* El texto aumenta su brillo (Glow) */
+/* El texto aumenta su resplandor (efecto energía) */
 .logo a:hover span {
-    filter: drop-shadow(0 0 20px rgba(0, 224, 255, 0.9)) brightness(1.3);
+    /* Resplandor intenso y nítido, sin blur excesivo */
+    filter: drop-shadow(0 0 15px rgba(0, 224, 255, 1));
+    /* Un pequeño zoom para acompañar al ícono */
+    transform: scale(1.02);
 }
-
 
 .nav-links { display: flex; list-style: none; gap: 35px; }
 .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; font-weight: 500; }
